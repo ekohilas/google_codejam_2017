@@ -1,5 +1,3 @@
-from sys import argv
-
 def flip(pancake):
     return ["+" if x == "-" else "-" for x in pancake]
 
@@ -18,19 +16,12 @@ def flips(pancake, flip_size):
     else:
         return "IMPOSSIBLE"
 
-def write_cases(func, filename):
-    with open(filename) as fi, open(filename.split(".")[0] + ".out", "w") as fo:
-        for i in range(1, int(fi.readline().strip())+1):
-            pancake, num = fi.readline().strip().split()
-            print("Case #{}: {}".format(i, func(pancake, int(num))), file=fo)
-
-def print_cases(func, filename):
-    with open(filename) as fi:
-        for i in range(1, int(fi.readline().strip())+1):
-            line = fi.readline().strip()
-            pancake, num = line.split()
-            print("{} -> {}".format(line, func(pancake, int(num))))
+def print_cases(func):
+    for i in range(1, int(input())+1):
+        pancake, num = input().split()
+        output = func(pancake, int(num))
+        print("Case #{}: {}".format(i, output))
 
 if __name__ == "__main__":
-    write_cases(flips, argv[1])
+    print_cases(flips)
 

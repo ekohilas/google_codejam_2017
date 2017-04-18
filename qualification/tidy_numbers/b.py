@@ -1,11 +1,9 @@
-from sys import argv
-
 def tidy_number(number):
-
+    # TODO: implement in binary
     num = list(reversed(list(map(int, str(number)))))
     tidy_num = []
 
-    # fix this
+    # TODO: put edgecase into loop
     if len(num) == 1:
         return number
     else:
@@ -19,20 +17,13 @@ def tidy_number(number):
                 tidy_num = [9]*i + [num[i]-1]
             else:
                 tidy_num += [num[i]]
+
     return int("".join(map(str, reversed(tidy_num))))
 
-def write_cases(func, filename):
-    with open(filename) as fi, open(filename.split(".")[0] + ".out", "w") as fo:
-        for i in range(1, int(fi.readline().strip())+1):
-            line = func(int(fi.readline().strip()))
-            print("Case #{}: {}".format(i, line), file=fo)
-
-def print_cases(func, filename):
-    with open(filename) as fi:
-        for i in range(1, int(fi.readline().strip())+1):
-            line = fi.readline().strip()
-            print("{} -> {}".format(line, func(int(line))))
+def print_cases(func):
+    for i in range(1, int(input())+1):
+        print("Case #{}: {}".format(i, func(int(input()))))
 
 if __name__ == "__main__":
-    write_cases(tidy_number, argv[1])
+    print_cases(tidy_number)
 

@@ -1,5 +1,3 @@
-from sys import argv
-
 def find(num, people):
     if people == 1:
         return (num//2, (num-1)//2)
@@ -8,22 +6,13 @@ def find(num, people):
     else:
         return find((num-1)//2, people//2)
 
-def write_cases(func, filename):
-    with open(filename) as fi, open(filename.split(".")[0] + ".out", "w") as fo:
-        for i in range(1, int(fi.readline().strip())+1):
-            line = fi.readline().strip()
-            x, y = func(*map(int, line.split()))
-            print("Case #{}: {} {}".format(i, x, y), file=fo)
-
-def print_cases(func, filename):
-    with open(filename) as fi:
-        for i in range(1, int(fi.readline().strip())+1):
-            line = fi.readline().strip()
-            line = " ".join(func(*map(int, line.split())))
-            print("{} -> {}".format(line, line))
+def print_cases(func):
+    for i in range(1, int(input())+1):
+        num, people = map(int, input().split())
+        max_s, min_s = func(num, people)
+        print("Case #{}: {} {}".format(i, max_s, min_s))
 
 if __name__ == "__main__":
-    find(13, 12)
-    #write_cases(find, argv[1])
+    print_cases(find)
 
 
