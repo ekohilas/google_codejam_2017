@@ -1,0 +1,5 @@
+debuff to avoid death or decrease turns
+buff to decrease turns
+heal when health is deadly
+turns to kill can be calculated through division
+required healing can be caluclated through division

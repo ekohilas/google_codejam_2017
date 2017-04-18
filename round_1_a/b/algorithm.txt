@@ -1,0 +1,24 @@
+  1       2       3
+  70      80      90
+63, 77  72, 88  81, 99
+
+1: 1260, 1500, 700
+2: 800, 1440, 1600
+3: 1700, 1620, 900
+
+convert to possible servings
+order in hi to low range
+
+1: 17-20, 20-23, 10-11
+2: 17-20, 19-22, 10-11
+3: 17-20, 18-20, 10-11
+
+take lowest from 1
+find all matching
+remove all matching if all match
+
+1: 17-20, 20-23
+2: 17-20, 19-22
+3: 17-20, 18-20
+
+etc.
